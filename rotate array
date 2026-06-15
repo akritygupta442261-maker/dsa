@@ -1,0 +1,40 @@
+package Arrays;
+
+public class rotateArray {
+
+        // Function to rotate array
+        static void rotateArr(int arr[], int d) {
+            int n = arr.length;
+
+            d = d % n;  // handle d > n
+
+            reverse(arr, 0, d - 1);   // step 1
+            reverse(arr, d, n - 1);   // step 2
+            reverse(arr, 0, n - 1);   // step 3
+        }
+
+        // Function to reverse part of array
+        static void reverse(int[] arr, int i, int j) {
+            while(i < j) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+                j--;
+            }
+        }
+
+        // Main method
+        public static void main(String[] args) {
+
+            int[] arr = {1, 2, 3, 4, 5};
+            int d = 2;
+
+            rotateArr(arr, d);
+
+            // Print result
+            for(int i = 0; i < arr.length; i++) {
+                System.out.print(arr[i] + " ");
+            }
+        }
+    }
