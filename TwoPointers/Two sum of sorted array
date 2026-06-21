@@ -1,0 +1,40 @@
+package pattern1TwoPointer.java;
+
+import java.util.Scanner;
+
+public class TwoPointerSortedArrayNo {
+    public static int[] TwoSum(int[] arr, int target){
+        int i = 0, j = arr.length - 1;
+
+        while(i < j){
+            int sum = arr[i] + arr[j];
+
+            if(sum == target){
+                return new int[]{arr[i], arr[j]}; // ✅ values
+            }
+            else if(sum < target){
+                i++;
+            }
+            else{
+                j--;
+            }
+        }
+
+        return new int[]{-1, -1};
+    }
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        System.out.println("arr length");
+        int n= sc.nextInt();
+        System.out.println("give input array");
+        int arr[] = new int[n];
+        for(int i=0; i<arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int target= sc.nextInt();
+        int [] result= TwoSum(arr,target);
+        System.out.println(result[0]+" "+result[1]);
+
+
+    }
+}
