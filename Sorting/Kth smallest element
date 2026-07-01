@@ -1,0 +1,26 @@
+package Sorting;
+
+public class KthSmallestElement {
+    public static void main(String[] args) {
+        int []arr= {4,2,2,1,5,8};
+        int n= arr.length;
+        int k= 2;
+        for(int i=0; i<k; i++){
+            int max= Integer.MIN_VALUE;
+            int mindex=-1;
+            for(int j=i; j<n; j++){
+                if(arr[j] > max){
+                    max= arr[j];
+                    mindex=j;
+
+                }
+            }
+            int temp=arr[i];
+            arr[i]= arr[mindex];
+            arr[mindex]= temp;
+        }
+            System.out.print(arr[k-1]+ " ");
+
+    }
+
+}
